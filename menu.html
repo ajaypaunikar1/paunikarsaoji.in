@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paunikar Saoji · Full Menu</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #0d0b09;
+            color: #f2e6da;
+            min-height: 100vh;
+        }
+
+        /* ---------- HERO / FULL SCREEN BACKGROUND ---------- */
+        .menu-hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 8, 6, 0.85), rgba(30, 22, 16, 0.75)),
+                url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 2rem 1.8rem 3rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ---------- NAVBAR ---------- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0 1.2rem;
+            border-bottom: 1px solid rgba(219, 170, 107, 0.15);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .navbar .brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fae1c0;
+            letter-spacing: -0.3px;
+        }
+        .navbar .brand small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #c9ad8a;
+            margin-left: 0.6rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            font-weight: 500;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #e6d4c0;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover {
+            color: #dbaa6b;
+            border-bottom-color: #dbaa6b;
+        }
+        .nav-cta {
+            background: #dbaa6b;
+            color: #1a1410 !important;
+            padding: 0.3rem 1.4rem;
+            border-radius: 60px;
+            font-weight: 600;
+            border-bottom: none !important;
+        }
+        .nav-cta:hover {
+            background: #eac08a;
+            color: #0d0b09 !important;
+        }
+
+        /* ---------- MENU HEADER ---------- */
+        .menu-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .menu-header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #fbebd8;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            letter-spacing: -0.5px;
+        }
+        .menu-header h1 span {
+            color: #dbaa6b;
+        }
+        .menu-header p {
+            font-size: 1.2rem;
+            color: #decbb8;
+            margin-top: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        /* ---------- MENU GRID ---------- */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .menu-category {
+            background: rgba(20, 16, 12, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 28px;
+            padding: 1.4rem 1.5rem 1.2rem;
+            border: 1px solid rgba(255, 200, 130, 0.12);
+            transition: 0.3s;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+        .menu-category:hover {
+            border-color: #dbaa6b;
+            background: rgba(30, 24, 18, 0.85);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .menu-category h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #f0dcc4;
+            border-bottom: 2px dotted rgba(219, 170, 107, 0.3);
+            padding-bottom: 0.6rem;
+            margin-bottom: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu-category h3 i {
+            color: #dbaa6b;
+            font-size: 1.2rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.35rem 0 0.3rem;
+            border-bottom: 1px dotted rgba(200, 170, 140, 0.12);
+            color: #eee3d6;
+            font-size: 0.95rem;
+            gap: 0.5rem;
+        }
+        .menu-item .name {
+            font-weight: 400;
+            flex: 1;
+        }
+        .menu-item .price {
+            font-weight: 600;
+            color: #f5dbbc;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 0.05rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+        .menu-item .price small {
+            font-weight: 300;
+            font-size: 0.65rem;
+            color: #bfa68a;
+        }
+
+        .sub-note {
+            margin-top: 0.7rem;
+            font-size: 0.7rem;
+            color: #b8a084;
+            text-align: right;
+            border-top: 1px dashed rgba(255, 200, 130, 0.08);
+            padding-top: 0.5rem;
+            opacity: 0.8;
+        }
+
+        /* ---------- BACK BUTTON ---------- */
+        .back-link {
+            display: inline-block;
+            margin-top: 2.5rem;
+            color: #dbaa6b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: 0.2s;
+            border: 1px solid rgba(219, 170, 107, 0.3);
+            padding: 0.6rem 2rem;
+            border-radius: 60px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            align-self: center;
+        }
+        .back-link:hover {
+            background: #dbaa6b;
+            color: #1a1410;
+            border-color: #dbaa6b;
+        }
+
+        .back-link i {
+            margin-right: 0.6rem;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 900px) {
+            .menu-header h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+                flex-wrap: wrap;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+            .nav-links {
+                width: 100%;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            .menu-hero {
+                padding: 1rem 1rem 2rem;
+                background-attachment: scroll;
+            }
+            .menu-header h1 {
+                font-size: 2rem;
+            }
+            .menu-header p {
+                font-size: 1rem;
+            }
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .menu-category {
+                padding: 1rem 1.1rem;
+            }
+            .back-link {
+                font-size: 0.95rem;
+                padding: 0.5rem 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-hero">
+        <!-- ========== NAVBAR ========== -->
+        <nav class="navbar">
+            <div class="brand">Paunikar Saoji <small>🔥 Spicy & Tasty</small></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html" class="nav-cta"><i class="fas fa-arrow-left"></i> Back</a></li>
+            </ul>
+        </nav>
+
+        <!-- ========== MENU HEADER ========== -->
+        <div class="menu-header">
+            <h1>Our <span>Full</span> Menu</h1>
+            <p><i class="fas fa-utensils" style="color:#dbaa6b;"></i> Authentic Saoji · Spicy & Tasty · All prices in ₹</p>
+        </div>
+
+        <!-- ========== MENU GRID ========== -->
+        <div class="menu-grid">
+
+            <!-- Vegetarian -->
+            <div class="menu-category">
+                <h3>🥬 Vegetarian <i class="fas fa-leaf"></i></h3>
+                <div class="menu-item"><span class="name">पाटवडी (Patvadi)</span><span class="price">₹250</span></div>
+                <div class="menu-item"><span class="name">डाळकांदा (Dal Kanda)</span><span class="price">₹250</span></div>
+                <div class="menu-item"><span class="name">शेवभाजी (Shev Bhaji)</span><span class="price">₹250</span></div>
+                <div class="menu-item"><span class="name">पनीर बटर मसाला (Paneer Butter Masala)</span><span class="price">₹280</span></div>
+                <div class="menu-item"><span class="name">कोल्हापूरी पनीर (Kolhapuri Paneer)</span><span class="price">₹280</span></div>
+                <div class="menu-item"><span class="name">पनीर मसाला (Paneer Masala)</span><span class="price">₹280</span></div>
+                <div class="menu-item"><span class="name">पालक पनीर (Palak Paneer)</span><span class="price">₹300</span></div>
+                <div class="menu-item"><span class="name">पनीर खसखस (Paneer Khas Khas)</span><span class="price">₹350</span></div>
+                <div class="menu-item"><span class="name">दाल फ्राय (Dal Fry)</span><span class="price">₹200</span></div>
+                <div class="menu-item"><span class="name">दाल तडका (Dal Tadka)</span><span class="price">₹230</span></div>
+                <div class="menu-item"><span class="name">टमाटर चटणी (Tamatar Chutney)</span><span class="price">₹250</span></div>
+                <div class="menu-item"><span class="name">पनीर भुर्जी (Paneer Bhurji)</span><span class="price">₹320</span></div>
+                <div class="sub-note">all vegetarian</div>
+            </div>
+
+            <!-- Egg Curry -->
+            <div class="menu-category">
+                <h3>🥚 Egg Curry <i class="fas fa-egg"></i></h3>
+                <div class="menu-item"><span class="name">वेज अंडाकरी (Veg Egg Curry)</span><span class="price">₹180</span></div>
+                <div class="menu-item"><span class="name">वेज फ्राय अंडाकरी (Veg Fry Egg Curry)</span><span class="price">₹200</span></div>
+                <div class="menu-item"><span class="name">फ्राय अंडाकरी नॉनव्हेज (Fry Egg Curry Non-Veg)</span><span class="price">₹220</span></div>
+                <div class="menu-item"><span class="name">अंडाकरी नॉनव्हेज (Egg Curry Non-Veg)</span><span class="price">₹200</span></div>
+            </div>
+
+            <!-- Breads -->
+            <div class="menu-category">
+                <h3>🍞 Breads <i class="fas fa-bread-slice"></i></h3>
+                <div class="menu-item"><span class="name">रोटी (Roti)</span><span class="price">₹15</span></div>
+                <div class="menu-item"><span class="name">कडक रोटी (Kadak Roti)</span><span class="price">₹20</span></div>
+                <div class="menu-item"><span class="name">बटर रोटी (Butter Roti)</span><span class="price">₹25</span></div>
+                <div class="menu-item"><span class="name">घी रोटी (Ghee Roti)</span><span class="price">₹25</span></div>
+                <div class="menu-item"><span class="name">बटर पराठा (Butter Paratha)</span><span class="price">₹30</span></div>
+                <div class="menu-item"><span class="name">घी पराठा (Ghee Paratha)</span><span class="price">₹30</span></div>
+                <div class="menu-item"><span class="name">तेल पराठा (Oil Paratha)</span><span class="price">₹30</span></div>
+                <div class="menu-item"><span class="name">भाकर (Bhakar)</span><span class="price">₹35</span></div>
+            </div>
+
+            <!-- Rice -->
+            <div class="menu-category">
+                <h3>🍚 Rice <i class="fas fa-utensil-spoon"></i></h3>
+                <div class="menu-item"><span class="name">स्टीम राईस (Steam Rice) Half</span><span class="price">₹50</span></div>
+                <div class="menu-item"><span class="name">स्टीम राईस (Steam Rice) Full</span><span class="price">₹80</span></div>
+                <div class="menu-item"><span class="name">जिरा राईस (Jeera Rice) Half</span><span class="price">₹60</span></div>
+                <div class="menu-item"><span class="name">जिरा राईस (Jeera Rice) Full</span><span class="price">₹100</span></div>
+                <div class="menu-item"><span class="name">गार्लिक राईस (Garlic Rice) Half</span><span class="price">₹80</span></div>
+                <div class="menu-item"><span class="name">गार्लिक राईस (Garlic Rice) Full</span><span class="price">₹120</span></div>
+            </div>
+
+            <!-- Papad -->
+            <div class="menu-category">
+                <h3>🥨 Papad <i class="fas fa-circle"></i></h3>
+                <div class="menu-item"><span class="name">पापड (Plain Papad)</span><span class="price">₹25</span></div>
+                <div class="menu-item"><span class="name">फ्राय पापड (Fried Papad)</span><span class="price">₹30</span></div>
+                <div class="menu-item"><span class="name">मसाला पापड (Masala Papad)</span><span class="price">₹50</span></div>
+            </div>
+
+            <!-- Starters -->
+            <div class="menu-category">
+                <h3>🔥 Starters <i class="fas fa-fire"></i></h3>
+                <div class="menu-item"><span class="name">फिश फ्राय (Fish Fry)</span><span class="price">₹350</span></div>
+                <div class="menu-item"><span class="name">सुखा झिंगा (Sukha Zinga)</span><span class="price">₹380</span></div>
+                <div class="menu-item"><span class="name">खिमा कलेजी (Kheema Kaleji)</span><span class="price">₹390</span></div>
+                <div class="menu-item"><span class="name">गारलिक खिमा (Garlic Kheema)</span><span class="price">₹410</span></div>
+                <div class="menu-item"><span class="name">मुंडरी स्टार्टर (Mundari Starter)</span><span class="price">₹320</span></div>
+                <div class="menu-item"><span class="name">ग्रिन मटन (Green Mutton)</span><span class="price">₹380</span></div>
+                <div class="menu-item"><span class="name">गारलिक ग्रिन मटन (Garlic Green Mutton)</span><span class="price">₹400</span></div>
+                <div class="menu-item"><span class="name">सुखा मटन (Sukha Mutton)</span><span class="price">₹380</span></div>
+                <div class="menu-item"><span class="name">गारलिक मटन (Garlic Mutton)</span><span class="price">₹400</span></div>
+                <div class="menu-item"><span class="name">सुखा खुर (Sukha Khur)</span><span class="price">₹400</span></div>
+                <div class="menu-item"><span class="name">चिकन सुखा (Chicken Sukha)</span><span class="price">₹380</span></div>
+                <div class="menu-item"><span class="name">गारलिक सुखा चिकन (Garlic Sukha Chicken)</span><span class="price">₹400</span></div>
+                <div class="menu-item"><span class="name">गास्लीक कत्तीचा चिकन (Gaslik Katticha Chicken)</span><span class="price">₹470</span></div>
+                <div class="menu-item"><span class="name">सुखा चिकन कत्तीचा (Sukha Chicken Katticha)</span><span class="price">₹450</span></div>
+                <div class="menu-item"><span class="name">मसाला सावजी चिकन (Masala Saoji Chicken)</span><span class="price">₹350</span></div>
+            </div>
+
+            <!-- Curries -->
+            <div class="menu-category">
+                <h3>🥘 Curries <i class="fas fa-mug-hot"></i></h3>
+                <div class="menu-item"><span class="name">झिंगा करी (Zinga Curry) Half</span><span class="price">₹280</span></div>
+                <div class="menu-item"><span class="name">झिंगा करी (Zinga Curry) Full</span><span class="price">₹380</span></div>
+                <div class="menu-item"><span class="name">मुंडरी करी (Mundari Curry) Half</span><span class="price">₹220</span></div>
+                <div class="menu-item"><span class="name">मुंडरी करी (Mundari Curry) Full</span><span class="price">₹320</span></div>
+                <div class="menu-item"><span class="name">खिमा कलेजी करी (Kheema Kaleji Curry)</span><span class="price">₹390</span></div>
+                <div class="menu-item"><span class="name">गास्लीक खिमा कलेजी (Gaslik Kheema Kaleji)</span><span class="price">₹410</span></div>
+                <div class="menu-item"><span class="name">खिमा मटन (Kheema Mutton)</span><span class="price">₹390</span></div>
+                <div class="menu-item"><span class="name">मटन करी (Mutton Curry) Half</span><span class="price">₹280</span></div>
+                <div class="menu-item"><span class="name">मटन करी (Mutton Curry) Full</span><span class="price">₹380</span></div>
+                <div class="menu-item"><span class="name">गास्लीक मटन करी (Gaslik Mutton Curry) Half</span><span class="price">₹300</span></div>
+                <div class="menu-item"><span class="name">गास्लीक मटन करी (Gaslik Mutton Curry) Full</span><span class="price">₹400</span></div>
+                <div class="menu-item"><span class="name">चिकन करी (Chicken Curry) Half</span><span class="price">₹280</span></div>
+                <div class="menu-item"><span class="name">चिकन करी (Chicken Curry) Full</span><span class="price">₹380</span></div>
+                <div class="menu-item"><span class="name">गास्लीक चिकन करी (Gaslik Chicken Curry) Half</span><span class="price">₹300</span></div>
+                <div class="menu-item"><span class="name">गास्लीक चिकन करी (Gaslik Chicken Curry) Full</span><span class="price">₹400</span></div>
+                <div class="menu-item"><span class="name">खुर करी (Khur Curry) Half</span><span class="price">₹290</span></div>
+                <div class="menu-item"><span class="name">खुर करी (Khur Curry) Full</span><span class="price">₹400</span></div>
+                <div class="menu-item"><span class="name">गास्लीक खुर करी (Gaslik Khur Curry) Half</span><span class="price">₹300</span></div>
+                <div class="menu-item"><span class="name">गास्लीक खुर करी (Gaslik Khur Curry) Full</span><span class="price">₹420</span></div>
+                <div class="menu-item"><span class="name">कातीचा कोंबडा (Katicha Kombda)</span><span class="price">₹450</span></div>
+                <div class="menu-item"><span class="name">गास्लीक कातीचा कोंबडा (Gaslik Katicha Kombda)</span><span class="price">₹470</span></div>
+                <div class="menu-item"><span class="name">मसाला सावजी चिकन करी (Masala Saoji Chicken Curry) Half</span><span class="price">₹220</span></div>
+                <div class="menu-item"><span class="name">मसाला सावजी चिकन करी (Masala Saoji Chicken Curry) Full</span><span class="price">₹350</span></div>
+            </div>
+
+            <!-- Handi -->
+            <div class="menu-category">
+                <h3>🍲 Handi <i class="fas fa-pot-food"></i></h3>
+                <div class="menu-item"><span class="name">मटन हांडी (Mutton Handi) Half</span><span class="price">₹650</span></div>
+                <div class="menu-item"><span class="name">मटन हांडी (Mutton Handi) Full</span><span class="price">₹1200</span></div>
+                <div class="menu-item"><span class="name">मटन हांडी सुखा (Mutton Handi Sukha) Half</span><span class="price">₹650</span></div>
+                <div class="menu-item"><span class="name">मटन हांडी सुखा (Mutton Handi Sukha) Full</span><span class="price">₹1200</span></div>
+                <div class="menu-item"><span class="name">चिकन हांडी (Chicken Handi) Half</span><span class="price">₹650</span></div>
+                <div class="menu-item"><span class="name">चिकन हांडी (Chicken Handi) Full</span><span class="price">₹1200</span></div>
+                <div class="menu-item"><span class="name">सुखा चिकन हांडी (Sukha Chicken Handi) Half</span><span class="price">₹650</span></div>
+                <div class="menu-item"><span class="name">सुखा चिकन हांडी (Sukha Chicken Handi) Full</span><span class="price">₹1200</span></div>
+                <div class="menu-item"><span class="name">खुर हांडी (Khur Handi) Half</span><span class="price">₹700</span></div>
+                <div class="menu-item"><span class="name">खुर हांडी (Khur Handi) Full</span><span class="price">₹1300</span></div>
+                <div class="menu-item"><span class="name">सुखा खुर हांडी (Sukha Khur Handi) Half</span><span class="price">₹700</span></div>
+                <div class="menu-item"><span class="name">सुखा खुर हांडी (Sukha Khur Handi) Full</span><span class="price">₹1300</span></div>
+                <div class="menu-item"><span class="name">कातीचा कोंबडा हांडी (Katicha Kombda Handi) Half</span><span class="price">₹850</span></div>
+                <div class="menu-item"><span class="name">कातीचा कोंबडा हांडी (Katicha Kombda Handi) Full</span><span class="price">₹1600</span></div>
+                <div class="menu-item"><span class="name">सुखा कातीचा कोंबडा हांडी (Sukha Katicha Kombda Handi) Half</span><span class="price">₹850</span></div>
+                <div class="menu-item"><span class="name">सुखा कातीचा कोंबडा हांडी (Sukha Katicha Kombda Handi) Full</span><span class="price">₹1600</span></div>
+            </div>
+        </div>
+
+        <!-- ========== BACK LINK ========== -->
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Restaurant</a>
+    </div>
+
+</body>
+</html>
